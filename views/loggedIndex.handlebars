@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/">
+   Welcome NYC stations app!
+  </a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+      
+      <li class="nav-item">
+       
+        <a class="nav-link active">
+           Welcome,  {{data.user}}
+        </a>
+      </li>
+      <li class="nav-item">
+       
+        <a class="nav-link active" href="./" id="logoutBtn">
+          Log Out
+        </a>
+      </li>
+            <li class="nav-item active">
+        <a class="nav-link" href="/credits">
+          Credits
+        </a>
+      </li>
+      {{! <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li> }}
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<div class="jumbotron">
+    <h1 class="display-4">
+      Welcome NYC stations app!
+    </h1>
+    <p class="lead">
+      A different way to get to the best station so you can easily get to your destination
+    </p>
+    <hr class="my-4"/>
+    <h2 id="jumbotitle">Start seaching for stations today!</h2>
+    <div class="row justify-content-around mx-auto dropdwn">
+        <a class="btn btn-secondary" href="/">Look for stations</a>
+    </div>
+
+  </div> 
+
+<script src="https://code.jquery.com/jquery.js"></script>
+
+
+<script>
+      $('#logoutBtn').on('click', function(){
+    document.cookie = 'user' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    location.href = "/";
+    
+  })
+  
+  
+
+</script>
