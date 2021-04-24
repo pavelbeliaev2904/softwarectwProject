@@ -1,0 +1,153 @@
+<style>
+  .jumbotron * {
+    text-align: center;
+  }
+
+  #myInput {
+    border: 2px solid #6c757d;
+    border-radius: 5px;
+  }
+
+  #submitbtn {
+    margin-top: 15px;
+  }
+
+   @media screen and (max-width: 450px) {
+  #myInput {
+    margin-bottom: 10px;
+  }
+ }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/">
+   NYC Train Stations
+  </a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active">
+           Welcome,  {{userData.user}}
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/credits">
+          Credits
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="./" id="logoutBtn">
+          Log Out
+        </a>
+      </li>
+      {{! <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li> }}
+    </ul>
+  </div>
+</nav>
+<div class="container" style="margin-top: 25px;">
+  <div class="jumbotron">
+    <h1 class="display-4">
+      Start seaching for stations by time
+    </h1>
+    <hr class="my-4" />
+    <div class="row justify-content-around mx-auto dropdwn">
+      <div class="dropdown">
+        <button id="dropdownBtn" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          HR
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" value="">1</a>
+          <a class="dropdown-item" value="">2</a>
+          <a class="dropdown-item" value="">3</a>
+          <a class="dropdown-item" value="">4</a>
+          <a class="dropdown-item" value="">5</a>
+          <a class="dropdown-item" value="">6</a>
+          <a class="dropdown-item" value="">7</a>
+          <a class="dropdown-item" value="">8</a>
+          <a class="dropdown-item" value="">9</a>
+          <a class="dropdown-item" value="">10</a>
+          <a class="dropdown-item" value="">11</a>
+          <a class="dropdown-item" value="">12</a>
+          <a class="dropdown-item" value="">13</a>
+          <a class="dropdown-item" value="">14</a>
+          <a class="dropdown-item" value="">15</a>
+          <a class="dropdown-item" value="">16</a>
+          <a class="dropdown-item" value="">17</a>
+          <a class="dropdown-item" value="">18</a>
+          <a class="dropdown-item" value="">19</a>
+          <a class="dropdown-item" value="">20</a>
+          <a class="dropdown-item" value="">21</a>
+          <a class="dropdown-item" value="">22</a>
+          <a class="dropdown-item" value="">23</a>
+
+
+        </div>
+
+      </div>
+      <div class="dropdown">
+        <input id="myInput" type="text" class="form-control-plaintext" value="minutes">
+      </div>
+
+    </div>
+    <div class="row justify-content-around mx-auto dropdwn">
+      <button id="submitBtn" class="btn btn-secondary">Submit</button>
+    </div>
+    {{#each data}}
+        <div class="card station">
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">Get information by clicking below.</p>
+                <a href="/stations/{{this.id}}" class="btn btn-primary">Click here</a>
+            </div>
+        </div>
+    {{/each}}
+  </div>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript">
+    //.dropbtn dropdown button
+    $('#stations').on("click", function (event) {
+      console.log("Clicked");
+      location.href = "/stations"
+
+    });
+
+    $(".dropdown-item").on("click", function (event) {
+      $("#dropdownBtn").text($(this).text())
+
+    });
+
+    $("#submitBtn").on("click", function (event) {
+      event.preventDefault();
+      let hr = parseInt($("#dropdownBtn").text().trim());
+      let min;
+      if (parseInt($("#myInput").val()) && parseInt($("#myInput").val()) < 60 && parseInt(hr)) {
+        min = parseInt($("#myInput").val());
+        console.log(hr);
+        console.log(min);
+        location.href = "/bytime/" + hr + "/" + min;
+
+      } else {
+        alert("Make that you selected an hour and minutes (number between 0 and 59)")
+      }
+
+    });
+
+      $('#logoutBtn').on('click', function () {
+    document.cookie = 'user' + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    location.href = "/";
+  })
+  </script>

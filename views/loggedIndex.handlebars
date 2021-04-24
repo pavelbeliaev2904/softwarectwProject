@@ -1,3 +1,13 @@
+<style>
+  .btns {
+    margin-top: 35px;
+  }
+ @media screen and (max-width: 450px) {
+  #bytime {
+    margin-top: 5px;
+  }
+ }
+</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button
     class="navbar-toggler"
@@ -34,9 +44,6 @@
           Credits
         </a>
       </li>
-      {{! <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li> }}
     </ul>
   </div>
 </nav>
@@ -50,8 +57,9 @@
     </p>
     <hr class="my-4"/>
     <h2 id="jumbotitle">Start seaching for stations today!</h2>
-    <div class="row justify-content-around mx-auto dropdwn">
-        <a class="btn btn-secondary" href="/">Look for stations</a>
+    <div class="row justify-content-around mx-auto btns">
+        <button id="stations" class="btn btn-secondary justify-content-end">Look for stations</button>
+         <button id="bytime" class="btn btn-secondary justify-content-end">Look for stations by time</button>
     </div>
 
   </div> 
@@ -60,11 +68,23 @@
 
 
 <script>
-      $('#logoutBtn').on('click', function(){
+  $('#logoutBtn').on('click', function(){
     document.cookie = 'user' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     location.href = "/";
     
   })
+
+  $('#stations').on("click", function (event) {
+      console.log("Clicked");
+      location.href = "/stations"
+        
+    })
+
+    $('#bytime').on("click", function (event) {
+      console.log("Clicked");
+      location.href = "/bytime"
+        
+    })
   
   
 

@@ -2,39 +2,38 @@ const db = require("../models");
 const api = require("../helpers/api");
 module.exports = function(app) {
 
-  app.post("/stations", function(req, res) {
-    api.getStations().then(function(response) {
-      res.json(response.data);
-    }).catch((err) => {
-      if (err) throw err 
-    });
+  // app.post("/stations", function(req, res) {
+  //   api.getStations().then(function(response) {
+  //     res.json(response.data);
+  //   }).catch((err) => {
+  //     if (err) throw err 
+  //   });
+  // });
+
+  // app.post("/stations/:id", function(req, res) {
+  //   api.getStationById(req.params.id).then(function(response) {
+  //     res.json(response.data);
+  //   }).catch((err) => {
+  //     if (err) throw err 
+  //   });
   
-  });
+  // });
 
-  app.post("/stations/:id", function(req, res) {
-    api.getStationById(req.params.id).then(function(response) {
-      res.json(response.data);
-    }).catch((err) => {
-      if (err) throw err 
-    });
-  
-  });
+  // app.post("/arrivals/:id", function(req, res) {
+  //   api.getArrivalsTimesById(req.params.id).then(function(response) {
+  //     res.json(response.data);
+  //   }).catch((err) => {
+  //     if (err) throw err 
+  //   });
+  // });
 
-  app.post("/arrivals/:id", function(req, res) {
-    api.getArrivalsTimesById(req.params.id).then(function(response) {
-      res.json(response.data);
-    }).catch((err) => {
-      if (err) throw err 
-    });
-  });
-
-  app.post("/arrivals/:hr/:min", function(req, res) {
-    api.getArrivalsByTime(req.params.hr, req.params.min).then(function(response) {
-      res.json(response.data);
-    }).catch((err) => {
-      if (err) throw err 
-    });
-  });
+  // app.get("/bytime/:hr/:min", function(req, res) {
+  //   api.getArrivalsByTime(req.params.hr, req.params.min).then(function(response) {
+  //     res.json(response.data);
+  //   }).catch((err) => {
+  //     if (err) throw err 
+  //   });
+  // });
 
 
 
