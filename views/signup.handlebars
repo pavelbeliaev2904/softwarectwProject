@@ -1,13 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarTogglerDemo03"
-    aria-controls="navbarTogglerDemo03"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
+<style>
+    .jumbotron, nav, .container {
+    background-color: #FFA500;
+    border-radius: 0;
+  }
+
+  .jumbotron {
+    margin: 0px;
+    padding-bottom: 5px;
+  }
+
+  body {
+    background-color: blue;
+  } 
+</style>
+<nav class="navbar navbar-expand-lg navbar-light animate__animated animate__bounce">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="/">
@@ -28,57 +36,59 @@
     </ul>
   </div>
 </nav>
-
+<marquee behavior="scroll" direction="left" scrollamount="4">Welcome to the NYC train app, have a secure trip!</marquee>
 <div class="container">
-    <div class="panel-body jumbotron">
-      <h3>Username</h3>
-      <ul>
-        <li>username is 4-15 characters long</li>
-        <li>no _,- or . at the beginning</li>
-        <li>no __ or . or . or .. or .- or _- inside</li>
-        <li>no _,- or . at the end</li>
-      </ul>
+  <div class="jumbotron animate__animated animate__backInLeft">
+    <h3>Username</h3>
+    <ul>
+      <li>username is 4-15 characters long</li>
+      <li>no _,- or . at the beginning</li>
+      <li>no __ or . or . or .. or .- or _- inside</li>
+      <li>no _,- or . at the end</li>
+    </ul>
 
-      <h3>Password</h3>
-      <ul>
-        <li>Password is at least 8 characters long</li>
-        <li>Contains at least one character</li>
-        <li>Contains at least one number</li>
-      </ul>
-    </div>
-    <div class="panel-body jumbotron">
-        <form>
-            <div class="form-group">
-                <label for="userName">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter User Name">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
-            </div>
-        <div class="row justify-content-around mx-auto dropdwn">
-        <button type="submit" id="submit" class="btn btn-primary justify-content-end">Submit</button>
-        </div>
-        </form>
-    </div>
+    <h3>Password</h3>
+    <ul>
+      <li>Password is at least 8 characters long</li>
+      <li>Contains at least one character</li>
+      <li>Contains at least one number</li>
+    </ul>
+  </div>
+  <div class="jumbotron">
+    <form>
+      <div class="form-group animate__animated animate__backInLeft">
+        <label for="userName">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter User Name">
+      </div>
+      <div class="form-group animate__animated animate__backInLeft">
+        <label>Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+      </div>
+      <div class="row justify-content-around mx-auto dropdwn">
+        <button type="submit" id="submit"
+          class="btn btn-primary justify-content-end animate__animated animate__backInLeft">Submit</button>
+      </div>
+    </form>
+  </div>
 
 
 </div>
 
 
 <style>
-    .container {
-        background-color: white;
-        padding-right: 0px;
-        padding-left: 0px;
-    }
-    .panel-body {
-        padding: 15px;
-    }
-    nav{
-       margin-bottom: 10px;
-    }
+  .container {
+    background-color: white;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
 
+  .panel-body {
+    padding: 15px;
+  }
+
+  nav {
+    margin-bottom: 10px;
+  }
 </style>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -98,43 +108,43 @@
   }
 
   $("#submit").on("click", function (event) {
-      event.preventDefault();
+    event.preventDefault();
 
-      //  get values
-      var newUser = {
-          username: $("#username").val().trim(),
-          password: $("#password").val().trim(),
-      }
-      if(newUser.username === '' || newUser.password === '' || newUser.email === "" || newUser.type === "Categories"){
-          alert("Make sure you fill all boxes and select a user type");
+    //  get values
+    var newUser = {
+      username: $("#username").val().trim(),
+      password: $("#password").val().trim(),
+    }
+    if (newUser.username === '' || newUser.password === '' || newUser.email === "" || newUser.type === "Categories") {
+      alert("Make sure you fill all boxes and select a user type");
+    } else {
+      if (regexCheck(newUser.username, newUser.password)) {
+        submitUser(newUser)
       } else {
-        if(regexCheck(newUser.username, newUser.password)){
-          submitUser(newUser)
-        } else {
-          alert("Make sure you are inserting your username/password along with the guideline provided")
-        }
-         
+        alert("Make sure you are inserting your username/password along with the guideline provided")
       }
+
+    }
   })
-  
-  
+
+
 
   function submitUser(newUser) {
-      console.log(newUser);
-      $.ajax({
-          type: "POST",
-          url: "/users",
-          data: newUser,
-          cache: false,
-      }).then(function (data) {
-              
-              if(data.msg === "This username or email already exists in the database"){
-                alert(data.msg);
-              } else {
-                alert(data.msg);
-                window.location.href = "/login";
-              }
-              
-          });
+    console.log(newUser);
+    $.ajax({
+      type: "POST",
+      url: "/users",
+      data: newUser,
+      cache: false,
+    }).then(function (data) {
+
+      if (data.msg === "This username or email already exists in the database") {
+        alert(data.msg);
+      } else {
+        alert(data.msg);
+        window.location.href = "/login";
+      }
+
+    });
   }
 </script>

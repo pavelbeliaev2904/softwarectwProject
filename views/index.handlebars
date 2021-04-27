@@ -1,9 +1,17 @@
 <style>
   	.jumbotron *{
 			text-align: center;
-		} 
+		}
+
+    .jumbotron, nav {
+    background-color: #FFA500;
+  }
+
+  body {
+    background-color: blue;
+  } 
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light animate__animated animate__bounce">
   <button
     class="navbar-toggler"
     type="button"
@@ -41,17 +49,50 @@
     </ul>
   </div>
 </nav>
+<marquee behavior="scroll" direction="left" scrollamount="4">Welcome to the NYC train app, have a secure trip!</marquee>
 <div class="container" style="margin-top: 25px;">
   <div class="jumbotron">
-    <h1 class="display-4">
+    <h1 class="display-4 animate__animated animate__bounceInDown">
       Welcome NYC stations app!
     </h1>
-    <p class="lead">
+    <p class="lead animate__animated animate__bounceInDown">
       A different way to get to the best station so you can easily get to your destination
     </p>
     <hr class="my-4"/>
-    <h2 id="jumbotitle">Start seaching for stations today!</h2>
+    <h2 class="animate__animated animate__bounceInDown" id="jumbotitle">Start seaching for stations today!</h2>
+  </div>
+   <div class="jumbotron">
+    <h1 class="display-4 animate__animated animate__bounceInDown">
+      Guideline to take any train.
+    </h1>
+    <p class="lead animate__animated animate__bounceInDown">
+      Make sure to follow these on every station.
+    </p>
+    <hr class="my-4" />
+    <ul>
+      <li>If you drop something on the trackway, do not attempt to retrieve it. Instead use the platform intercom to
+        request assistance.</li>
+      <li>There is a crawl area underneath the platform that may provide some protection in the event of an accidental
+        fall onto the track.</li>
+      <li>Never run after or next to a moving train.</li>
+      <li>Don’t play near trains or tracks; pushing and shoving can cause accidents.</li>
+      <li>Never climb railroad vehicles or walk on the tracks.</li>
+      <li>Always stand away from the edge of platform and never sit on the platform edge.</li>
+      <li>Don’t skate or ride your bike on the platform, stairs or escalators.</li>
+      <li>Hold on to your child when a train approaches.</li>
+      <li>Wait for the vehicle to stop before approaching.</li>
+      <li>Wait for exiting passengers to leave, then board.</li>
+      <li>Watch your step, especially at night or in wet weather.</li>
+      <li>Watch the gap between the platform and train.</li>
+      <li>Take a seat if possible; use handrails/handholds.</li>
+      <li>Don’t lean against train doors; keep hands clear.</li>
+      <li>Be ready to exit when you arrive at your stop.</li>
+      <li>Step away after exiting.</li>
+    </ul>
 
+
+
+  </div>
 </div> 
 
 <script src="https://code.jquery.com/jquery.js"></script>

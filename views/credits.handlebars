@@ -2,8 +2,16 @@
   .container {
         margin-top: 25px;
     }
+
+  .jumbotron, nav {
+    background-color: #FFA500;
+  }
+
+  body {
+    background-color: blue;
+  } 
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light animate__animated animate__bounce">
   <button
     class="navbar-toggler"
     type="button"
@@ -19,26 +27,33 @@
     NYC Train Stations
   </a>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">
+          Home
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>
+<marquee behavior="scroll" direction="left" scrollamount="4">Welcome to the NYC train app, have a secure trip!</marquee>
 <div class="container">
   <div class="jumbotron">
     <p>
       Thanks for using our NYC train app here are the prople who made this app possible:
     </p>
-    <div class="" style="width: 300px;">
+    <div class="animate__animated animate__bounce" style="width: 300px;">
       <ul>
-        <li>
+        <li  class="animate__animated animate__bounce">
           Rullin Wang
         </li>
-        <li>
+        <li  class="animate__animated animate__bounce">
           Pavel Beliaved
         </li>
-        <li>
+        <li  class="animate__animated animate__bounce">
           Claudio Saillant
         </li>
-        <li>
+        <li  class="animate__animated animate__bounce">
           Atai Nail
         </li>
       </ul>

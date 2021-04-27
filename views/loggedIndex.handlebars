@@ -2,44 +2,48 @@
   .btns {
     margin-top: 35px;
   }
- @media screen and (max-width: 450px) {
-  #bytime {
-    margin-top: 5px;
+
+  @media screen and (max-width: 450px) {
+    #bytime {
+      margin-top: 5px;
+    }
   }
- }
+
+  .jumbotron, nav {
+    background-color: #FFA500;
+  }
+
+  body {
+    background-color: blue;
+  }
+
+
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarTogglerDemo03"
-    aria-controls="navbarTogglerDemo03"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
+<nav class="navbar navbar-expand-lg navbar-light animate__animated animate__bounce">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="/">
-   Welcome NYC stations app!
+    Welcome NYC stations app!
   </a>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-      
+
       <li class="nav-item">
-       
+
         <a class="nav-link active">
-           Welcome,  {{data.user}}
+          Welcome, {{data.user}}
         </a>
       </li>
       <li class="nav-item">
-       
+
         <a class="nav-link active" href="./" id="logoutBtn">
           Log Out
         </a>
       </li>
-            <li class="nav-item active">
+      <li class="nav-item active">
         <a class="nav-link" href="/credits">
           Credits
         </a>
@@ -47,45 +51,80 @@
     </ul>
   </div>
 </nav>
+<marquee behavior="scroll" direction="left" scrollamount="4">Welcome to the NYC train app, have a secure trip!</marquee>
 <div class="container">
-<div class="jumbotron">
-    <h1 class="display-4">
+  <div class="jumbotron">
+    <h1 class="display-4 animate__animated animate__bounceInDown">
       Welcome NYC stations app!
     </h1>
-    <p class="lead">
+    <p class="lead animate__animated animate__bounceInDown">
       A different way to get to the best station so you can easily get to your destination
     </p>
-    <hr class="my-4"/>
-    <h2 id="jumbotitle">Start seaching for stations today!</h2>
+    <hr class="my-4" />
+    <h2 id="jumbotitle animate__animated animate__bounceInDown">Start seaching for stations today!</h2>
     <div class="row justify-content-around mx-auto btns">
-        <button id="stations" class="btn btn-secondary justify-content-end">Look for stations</button>
-         <button id="bytime" class="btn btn-secondary justify-content-end">Look for stations by time</button>
+      <button id="stations" class="btn btn-primary justify-content-end">Look for stations</button>
+      <button id="bytime" class="btn btn-primary justify-content-end">Look for stations by time</button>
     </div>
 
-  </div> 
+
+  </div>
+  <div class="jumbotron">
+    <h1 class="display-4 animate__animated animate__bounceInDown">
+      Guideline to take any train.
+    </h1>
+    <p class="lead animate__animated animate__bounceInDown">
+      Make sure to follow these on every station.
+    </p>
+    <hr class="my-4" />
+    <ul>
+      <li>If you drop something on the trackway, do not attempt to retrieve it. Instead use the platform intercom to
+        request assistance.</li>
+      <li>There is a crawl area underneath the platform that may provide some protection in the event of an accidental
+        fall onto the track.</li>
+      <li>Never run after or next to a moving train.</li>
+      <li>Don’t play near trains or tracks; pushing and shoving can cause accidents.</li>
+      <li>Never climb railroad vehicles or walk on the tracks.</li>
+      <li>Always stand away from the edge of platform and never sit on the platform edge.</li>
+      <li>Don’t skate or ride your bike on the platform, stairs or escalators.</li>
+      <li>Hold on to your child when a train approaches.</li>
+      <li>Wait for the vehicle to stop before approaching.</li>
+      <li>Wait for exiting passengers to leave, then board.</li>
+      <li>Watch your step, especially at night or in wet weather.</li>
+      <li>Watch the gap between the platform and train.</li>
+      <li>Take a seat if possible; use handrails/handholds.</li>
+      <li>Don’t lean against train doors; keep hands clear.</li>
+      <li>Be ready to exit when you arrive at your stop.</li>
+      <li>Step away after exiting.</li>
+    </ul>
+
+
+
+  </div>
+</div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
 
 
 <script>
-  $('#logoutBtn').on('click', function(){
-    document.cookie = 'user' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  $('#logoutBtn').on('click', function () {
+    document.cookie = 'user' + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     location.href = "/";
-    
+
   })
 
   $('#stations').on("click", function (event) {
-      console.log("Clicked");
-      location.href = "/stations"
-        
-    })
+    console.log("Clicked");
+    location.href = "/stations"
 
-    $('#bytime').on("click", function (event) {
-      console.log("Clicked");
-      location.href = "/bytime"
-        
-    })
-  
-  
+  })
+
+  $('#bytime').on("click", function (event) {
+    console.log("Clicked");
+    location.href = "/bytime"
+
+  })
+
+
 
 </script>
